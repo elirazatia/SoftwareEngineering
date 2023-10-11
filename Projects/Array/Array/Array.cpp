@@ -6,21 +6,27 @@
 char helloWorldString[] = { 'h', 'e', 'l', 'l', 'o', 0 };
 char* dynamicSize = new char[0];
 
+char dynamic[12] = {};
+int valA = 3;
+long b = 1009491;
+long long c = 0xFFEEE;
+
+void updateString(char *arr);
+
 int main()
 {
-    std::cout << "Hello World!\n";
+	std::cout << sizeof(valA);
+	std::cout << sizeof(b);
+	std::cout << sizeof(c);
+	std::cout << sizeof(dynamic);
 
-	dynamicSize = new char[4];
-	dynamicSize[0] = 'a';
-	dynamicSize[1] = 'b';
-	dynamicSize[2] = 'c';
-	dynamicSize[3] = 'f';
+	std::cout << dynamic;
+	updateString(&dynamic[2]);
+	std::cout << dynamic;
+}
 
-	helloWorldString[3] = 'e';
-	for (int x = 0; x < sizeof(dynamicSize); x++)
-	{
-		std::cout << dynamicSize[x];
-	}
+void updateString(char *arr) {
+	arr = '3';
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
