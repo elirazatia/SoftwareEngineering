@@ -5,6 +5,21 @@
 
 int main()
 {
+    /**
+    * 1. Cannot compare string directly by using ===
+    *   This is because strings, unlike in JS (in their abstracted form anyway), store a memory address and cannot be comapred directlry
+    *   To do this you need to use strncmp - string compare
+    * 
+    * 2. You cannot assign a string directly to another string
+    *   You must use strncpy_s
+    * 
+    * 3. Since strings are not a data type, but rather an array of chars. You cannot typecast other values to string or by using a built-in method (like .toString())
+    *   Using the sprintf_s allows you to use the same pattern as printf and use the outputted result to create a new string
+    *   You must use the same %d, %u, %s ... control characters to create your string
+    * 
+    * 4. strstr is a function that is used to determine the location of a substring within a string
+    **/
+
     //Create a string
     char moduleName[] = "Comp1000";
     const char institutionName[] = "University of Plymouth";
@@ -40,7 +55,7 @@ int main()
     }
 
     //Comparing array content - part 1
-    int diff = (int)strncmp(moduleName, anotherModule, (int)sizeof(moduleName)-1);
+    int diff = (int)strncmp(moduleName, anotherModule, (int)sizeof(moduleName));
     if ( diff == 0)
     {
         printf("%s is the same as %s\n", moduleName, anotherModule);
@@ -84,6 +99,7 @@ int main()
 
     //Find substrings
     char* loc = strstr(header, "of");
+    puts("The location *");
     puts(loc);
     loc[0] = 0;
     puts(header);
