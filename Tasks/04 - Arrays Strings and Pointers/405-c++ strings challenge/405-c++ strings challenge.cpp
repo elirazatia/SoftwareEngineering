@@ -1,7 +1,10 @@
 #include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include <iostream>
 #include <string>
-#include <sstream>
 #include <algorithm>
+
 using namespace std;
 
 int main()
@@ -17,8 +20,26 @@ int main()
         "  </BODY>\n" \
         "</HTML>\n";
 
+    string match = "title=\"";
     cout << input << endl;
+    cout << "Searching for " << match << endl;
 
+    size_t titleLocation = input.find(match);
+    cout << "Location: " << titleLocation << endl;
+
+    string postAttributeKeyString = input.substr(titleLocation + match.size());
+    size_t endQuotationLocation = postAttributeKeyString.find("\"");
+    cout << postAttributeKeyString;
+    string matchingAttributeValue = postAttributeKeyString.substr(0, endQuotationLocation);
+
+    cout << "Attribute value" << matchingAttributeValue;
+    //;char* matchSubstring = strpos(input, match);
+
+    //cout << "matching for " << match << endl;
+    //cout << "matching substring is " << matchSubstring;
+
+    return 0;
+    /*
     //Write solution here
     bool isDetermined = false;
     int index = 0;
@@ -69,6 +90,6 @@ int main()
     while (iss >> word) {       //Read the next word (if there is one)
         cout << word << endl;   //Output each word in turn
     }
-
+    */
 }
 
