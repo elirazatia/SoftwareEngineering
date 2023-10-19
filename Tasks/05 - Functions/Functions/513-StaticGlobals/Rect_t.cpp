@@ -2,23 +2,22 @@
 
 //These are PRIVATE to this source file
 static uint32_t calcCount = 0;
-static void updateArea(Rect_t& r);
 
 //Globals
-Rect_t CreateRect(int w, int h)
-{
-	Rect_t r = { w,h };
-	updateArea(r);
-	return r;
-}
-
-static void updateArea(Rect_t& r)
+void updateArea(Rect_t& r)
 {
 	//Extended arithmetic to avoid overflow
 	r.area = (uint64_t)r.height * (uint64_t)r.width;
 
 	//Keep track of how many times this function is called
 	calcCount++;
+}
+
+Rect_t CreateRect(int w, int h)
+{
+	Rect_t r = { w,h };
+	updateArea(r);
+	return r;
 }
 
 void updateWidth(Rect_t& r, int w)

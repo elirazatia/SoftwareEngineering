@@ -11,6 +11,7 @@ struct Rect_t
 
 //Global function prototypes
 Rect_t CreateRect(int w, int h);		//Create a rec of with width and height
+void updateArea(Rect_t& r);
 void updateWidth(Rect_t& r, int w);		//Set the width
 void updateHeight(Rect_t& r, int h);		//Set the height
 void display(Rect_t& r);

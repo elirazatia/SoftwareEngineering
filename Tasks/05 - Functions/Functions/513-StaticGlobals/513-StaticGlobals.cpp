@@ -12,6 +12,8 @@ int main()
 	display(r1);
 	cout << "Number of multiplications performed: " << getCount() << endl;
 
+	updateArea(r1);
+
 	// Task - uncomment this and try to build the code
-	//updateArea(r1);
+	cout << "Number of multiplications performed: " << getCount() << endl;
 }
